@@ -1,21 +1,14 @@
-import json
-def save_user_data():
-    user_list=[]
-    while True:
-        name=input("Enter name ( or 'quit' to exit the program) :")
-        if name=='quit':
-            break
-        email=input("Enter Email")
-        Contac=input("Enter Contact")
+def fibonacci(n):
+    if n<=0:
+        return []
+    elif n==1:
+        return [0]
+    elif n==2:
+        return [0,1]
+    else:
+        fib_seq=[0,1]
+        fib_seq.extend(map(lambda i: fib_seq[i-1]+fib_seq[i-2],range(2,n)))
+        return fib_seq
 
-        user_data={
-            "name":name,
-            "email":email,
-            "contact":Contac
-        }
-        user_list.append(user_data)
-        with open("user_data.json",'w') as file:
-            json.dump(user_list,file)
-        print("User Data Saved Successfully")
 
-save_user_data()
+print(fibonacci(20))
